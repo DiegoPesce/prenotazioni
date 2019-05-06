@@ -1,0 +1,34 @@
+<mat-card>
+  <mat-form-field class="example-full-width">
+    <input #nome matInput placeholder="Nome">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input #cognome matInput placeholder="Cognome">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input #email matInput placeholder="Email" [formControl]="emailFormControl"
+          [errorStateMatcher]="matcher">
+    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input #indirizzo matInput placeholder="Indirizzo">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input #telefono matInput placeholder="Telefono">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input #data matInput type="date" placeholder="Data">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input #ora matInput type="time" placeholder="Ora">
+  </mat-form-field>
+  <button mat-raised-button (click)="insert(nome, cognome, email, indirizzo, telefono, data, ora)">Inserisci</button>
+</mat-card>
